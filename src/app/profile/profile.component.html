@@ -1,1 +1,27 @@
 <p>profile works!</p>
+
+<div *ngFor="let item of user">
+  <p>Username: {{ item.username }}</p>
+  <p>Birthdate: {{ item.birthdate }}</p>
+  <p>Email: {{ item.email }}</p>
+  <p>Age: {{ item.age }}</p>
+
+  <input type="text" name="username" [(ngModel)]="curr_username" />
+  <button type="submit" (click)="editData('username', curr_username)">
+    Edit Username</button
+  ><br />
+
+  <input type="text" name="birthdate" [(ngModel)]="curr_birthdate" />
+  <button type="submit" (click)="editData('birthdate', curr_birthdate)">
+    Edit Birthdate</button
+  ><br />
+
+  <input type="text" name="email" [(ngModel)]="curr_email" />
+  <button type="submit" (click)="editData('email', curr_email)">
+    Edit Email</button
+  ><br />
+
+  <input type="text" name="age" [(ngModel)]="curr_age" />
+  <button type="submit" (click)="editData('age', curr_age)">Edit Age</button
+  ><br />
+</div>

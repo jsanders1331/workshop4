@@ -10,7 +10,7 @@ const PORT = 3000;
 var users = [
   {
     username: "John",
-    birthdate: "Doe",
+    birthdate: "01/02/03",
     age: 5,
     email: "john@123",
     password: "123",

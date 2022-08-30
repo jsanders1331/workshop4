@@ -9,15 +9,15 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  username = 'John1';
-  password = '123';
+  username = '';
+  password = '';
   fetchedData = {};
   authenticated = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
   loggedIn() {
     if (sessionStorage.getItem('user_data') == null) {
-      return false;
+      return true;
     }
     console.log(sessionStorage.getItem('user_data'));
     var data = sessionStorage.getItem('user_data') || '{}';
@@ -47,7 +47,9 @@ export class LoginComponent implements OnInit {
           .then((data) => (this.fetchedData = data))
           .then((data) => {
             if (data[0].valid) {
+              // check if user is authenticated
               console.log('Authenticated');
+              sessionStorage.clear(); // clear session storage for purpose of the application.
               this.authenticated = true;
               sessionStorage.setItem(
                 'user_data',
